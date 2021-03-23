@@ -1,0 +1,36 @@
+//**to read elements of the table**//         
+
+FUNCTION Read_Table(n:INTEGER) : Tab : ARRAY_OF INTEGER[length];
+VAR
+    i : INTEGER;
+BEGIN
+   
+    FOR i FROM 0 TO (Tab.length -1)  DO
+        Read(Tab[i]);
+    END_FOR
+    RETURN Tab ;
+END
+
+
+   //**The FUNCTION**//
+FUNCTION insertion_Sort(Arr : ARRAY_OF INTEGER[length];) : ARRAY
+VAR
+    n,i,j: INTEGER;
+    current:INTEGER;
+BEGIN
+    n = Arr.length;
+    Arr=Read_Table(n);
+
+    FOR i FROM 1 TO n-1 STEP 1  DO
+
+    //**Choosing the first element in our unsorted subarray**//
+    current = Arr[i];
+    j= i-1;
+        WHILE ((j>-1 ) and (current < Arr[j])) DO
+            Arr[j+1] = Arr[j];
+            j--;
+        END_WHILE
+    Arr[j+1] = current;
+    END_FOR
+    RETURN Arr;
+END   
